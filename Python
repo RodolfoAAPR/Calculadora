@@ -1,0 +1,52 @@
+while True:
+    numero_1 = input('Insira o primeiro número: ')
+    numero_2 = input('Insira o segundo número: ')
+    operador = input('Insira o operador(*, /, +, -): ')
+
+    numeros_validos = None
+    valor_float_1 = 0
+    valor_float_2 = 0
+
+    try:
+        valor_float_1 = float(numero_1)
+        valor_float_2 = float(numero_2)
+        numeros_validos = True
+    except:
+        numeros_validos = None
+
+    if numeros_validos is None:
+        print('Alguns dos valores ou ambos são inválidos.')
+        continue
+
+    operadores_aceitos = '+-/*'
+
+    if operador not in operadores_aceitos:
+        print('O operador inserido não é permitido. Tente novamente.')
+        continue
+
+    if len(operador) > 1:
+        print('Insira um operador por vez. Tente novamente.')
+        continue
+
+    if operador == '+':
+        print(f'{valor_float_1} + {valor_float_2} = ',
+              valor_float_1 + valor_float_2)
+        
+    elif operador == '-':
+        print(f'{valor_float_1} - {valor_float_2} = ',
+              valor_float_1 - valor_float_2)
+
+    elif operador == '*':
+        print(f'{valor_float_1} * {valor_float_2} = ', 
+              valor_float_1 * valor_float_2)
+
+    elif operador == '/':
+        print(f'{valor_float_1} / {valor_float_2} = ',
+            valor_float_1 / valor_float_2)
+
+
+    sair = input('Deseja sair? [s]im: ').lower().startswith('s')
+    print(sair)
+
+    if sair is True:
+        break
